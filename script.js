@@ -1,5 +1,5 @@
 // Informe o número oficial com DDI e DDD, somente dígitos. Ex.: 55 + DDD + número.
-const WHATSAPP = '';
+const WHATSAPP = '5564999999687';
 const instagram = 'https://www.instagram.com/flaviagodoi.fisio/';
 document.querySelectorAll('[data-contact]').forEach(link => {
  const service = link.dataset.service;
