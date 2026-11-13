@@ -1,10 +1,14 @@
-// Informe o número oficial com DDI e DDD, somente dígitos. Ex.: 55 + DDD + número.
-const WHATSAPP = '5564999999687';
-const instagram = 'https://www.instagram.com/flaviagodoi.fisio/';
+// Opcional: informe o WhatsApp da clínica com DDI e DDD, somente dígitos.
+// Sem um número válido, os links levam à seção de contato da própria página.
+const WHATSAPP = '';
 document.querySelectorAll('[data-contact]').forEach(link => {
+ if (!/^55\d{10,11}$/.test(WHATSAPP)) {
+  link.href = '#contato';
+  return;
+ }
  const service = link.dataset.service;
- const message = service ? `Olá, Flávia! Gostaria de saber mais sobre ${service}.` : 'Olá, Flávia! Gostaria de agendar uma avaliação.';
- link.href = /^55\d{10,11}$/.test(WHATSAPP) ? `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(message)}` : instagram;
+ const message = service ? `Olá! Gostaria de saber mais sobre ${service}.` : 'Olá! Gostaria de agendar uma avaliação.';
+ link.href = `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(message)}`;
  link.target = '_blank'; link.rel = 'noopener noreferrer';
 });
 const menu = document.querySelector('.menu'), nav = document.querySelector('#nav');
